@@ -17,8 +17,10 @@
 
   <ItemGroup>
     <Folder Include="Result\" />
-    <Folder Include="Features\" />
-    <Folder Include="StepDefinitions\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\SpecFlowAutomation.Framework\SpecFlowAutomation.Framework.csproj" />
   </ItemGroup>
 
   <ItemGroup>

@@ -1,34 +1,54 @@
-﻿using TechTalk.SpecFlow;
+﻿using BoDi;
+using SpecFlowAutomation.Framework;
+using TechTalk.SpecFlow;
 
 namespace SpecFlowAutomation.Acutis.Hooks
 {
     [Binding]
     public sealed class AcutisHooks
     {
-        // For additional details on SpecFlow hooks see http://go.specflow.org/doc-hooks
-
-        [BeforeScenario("@tag1")]
-        public void BeforeScenarioWithTag()
+        private readonly IObjectContainer container;
+        public AcutisHooks(IObjectContainer container)
         {
-            // Example of filtering hooks using tags. (in this case, this 'before scenario' hook will execute if the feature/scenario contains the tag '@tag1')
-            // See https://docs.specflow.org/projects/specflow/en/latest/Bindings/Hooks.html?highlight=hooks#tag-scoping
-
-            //TODO: implement logic that has to run before executing each scenario
+            this.container = container;
+        }
+        [BeforeTestRun]
+        public static void BeforeTestRun()
+        {
+            CommonExtentReports.BeforeTestRun();
+        }
+        [BeforeFeature]
+        public static void BeforeFeature()
+        {
+            CommonExtentReports.BeforeFeature();
         }
 
-        [BeforeScenario(Order = 1)]
-        public void FirstBeforeScenario()
+        [BeforeScenario]
+        public void BeforeScenario()
         {
-            // Example of ordering the execution of hooks
-            // See https://docs.specflow.org/projects/specflow/en/latest/Bindings/Hooks.html?highlight=order#hook-execution-order
-
-            //TODO: implement logic that has to run before executing each scenario
+            CommonExtentReports.BeforeScenario(this.container);
         }
+        [AfterStep]
+        public void AfterStep()
+        {
+            CommonExtentReports.AfterStep(this.container);
 
+        }
         [AfterScenario]
         public void AfterScenario()
         {
-            //TODO: implement logic that has to run after executing each scenario
+            CommonExtentReports.AfterScenario(this.container);
+        }
+        [AfterFeature]
+        public static void AfterFeature()
+        {
+            CommonExtentReports.AfterFeature();
+
+        }
+        [AfterTestRun]
+        public static void AfterTestRun()
+        {
+            CommonExtentReports.AfterTestRun();
         }
     }
 }

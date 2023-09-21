@@ -6,7 +6,14 @@ using System.Threading.Tasks;
 
 namespace SpecFlowAutomation.Framework.JsonTestData
 {
-    internal class AcutisJsonDataObjects
+    public class AcutisJsonDataObjects
     {
+        public JsonLogin? Login { get; set; } 
     }
+    public class JsonLogin
+    {
+        public string? URL { get; set; }
+        public string? UserName { get; set; }
+        public string? Password { get; set; }
+    }  
 }

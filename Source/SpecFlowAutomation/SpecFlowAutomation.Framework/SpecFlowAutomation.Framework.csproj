@@ -8,7 +8,7 @@
 
   <ItemGroup>
     <PackageReference Include="Atata" Version="2.9.0" />
-    <PackageReference Include="ExtentReports" Version="5.0.0" />
+    <PackageReference Include="ExtentReports" Version="4.1.0" />
     <PackageReference Include="ExtentReports.Core" Version="1.0.3" />
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.0.0" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
