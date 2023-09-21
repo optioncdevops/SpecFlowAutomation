@@ -1,0 +1,21 @@
+{
+  "Login": {
+    "URL": "https://viper.allnewoptionc.com",
+    "UserName": "jclement@optionc.com",
+    "Password": "password"
+  },
+  "UserDetails": {
+    "FirstName": "Specflow",
+    "LastName": "Selenium",
+    "UserName": "Specflow@Selenium.com",
+    "Password": "Specflow@123",
+    "UserRole": "1"
+  },
+  "TicketDetails": {
+    "SchoolID": "19994",
+    "StaffId": "1183955",
+    "Title": "Ticket_001",
+    "Description": "Ticket_001_Description",
+    "AssignedTo": "109,71,93"
+  }
+}
