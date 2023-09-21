@@ -491,7 +491,7 @@ namespace SpecFlowAutomation.Framework
 
         public void ClickOnAdd()
         {
-            FindElementById(XPath_Button.btnAdd);
+            FindElementById(XPath_Button.btnAddUser);
         }
         public void ClickOnSave()
         {
