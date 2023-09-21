@@ -15,13 +15,13 @@ namespace SpecFlowAutomation.Framework
     {
         protected readonly IWebDriver _webDriver;
         protected readonly IWait<IWebDriver> _wait;
-        protected readonly int iWebDriverType = 1; // 1 - IWebDriver and  2 - IWait
+        protected readonly int iWebDriverType = 2; // 1 - IWebDriver and  2 - IWait
 
         protected BasePageObject(IWebDriver webDriver)
         {
             PageFactory.InitElements(webDriver, this);
             webDriver.Manage().Timeouts().ImplicitWait = TimeSpan.FromMilliseconds(5000);
-            _wait = new WebDriverWait(webDriver, TimeSpan.FromSeconds(300));
+            _wait = new WebDriverWait(webDriver, TimeSpan.FromSeconds(120));
             _webDriver = webDriver;
         }
 
@@ -38,42 +38,6 @@ namespace SpecFlowAutomation.Framework
                 _webDriver.Manage().Window.Maximize();
             }
         }
-
-        #region   Commom Methods
-
-        //Common method for converting the given date into MM/DD/YYYY format
-        public string GetDateFormat(string sDate = "")
-        {
-            DateTime Date = Convert.ToDateTime(sDate);
-            string currentDate = "";
-            if (sDate.Equals("") || sDate.Equals(null))
-            {
-                currentDate = DateTime.Today.ToString("MM/dd/yyyy");
-            }
-            else
-            {
-                currentDate = Date.ToString("MM/dd/yyyy");
-            }
-            return currentDate;
-        }
-
-        //Common method for converting the given time into HH:MM TT format
-        public string GetTimeFormat(string sTime = "")
-        {
-            DateTime Time = Convert.ToDateTime(sTime);
-            string currentTime = "";
-            if (sTime.Equals("") || sTime.Equals(null))
-            {
-                currentTime = DateTime.Now.ToString("hh:mm tt");
-            }
-            else
-            {
-                currentTime = Time.ToString("hh:mm tt");
-            }
-            return currentTime;
-        }
-
-        #endregion
 
         #region Find the Element By Id 
 
@@ -539,6 +503,42 @@ namespace SpecFlowAutomation.Framework
         }
         #endregion
         
+        #region   Commom Methods
+
+        //Common method for converting the given date into MM/DD/YYYY format
+        public string GetDateFormat(string sDate = "")
+        {
+            DateTime Date = Convert.ToDateTime(sDate);
+            string currentDate = "";
+            if (sDate.Equals("") || sDate.Equals(null))
+            {
+                currentDate = DateTime.Today.ToString("MM/dd/yyyy");
+            }
+            else
+            {
+                currentDate = Date.ToString("MM/dd/yyyy");
+            }
+            return currentDate;
+        }
+
+        //Common method for converting the given time into HH:MM TT format
+        public string GetTimeFormat(string sTime = "")
+        {
+            DateTime Time = Convert.ToDateTime(sTime);
+            string currentTime = "";
+            if (sTime.Equals("") || sTime.Equals(null))
+            {
+                currentTime = DateTime.Now.ToString("hh:mm tt");
+            }
+            else
+            {
+                currentTime = Time.ToString("hh:mm tt");
+            }
+            return currentTime;
+        }
+
+        #endregion
+
     }
 
 }
