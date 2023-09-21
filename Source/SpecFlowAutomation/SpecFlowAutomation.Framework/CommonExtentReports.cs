@@ -159,11 +159,11 @@ namespace SpecFlowAutomation.Framework
                     chromeDriverProcess.Kill();
                 }
 
-                Process[] FirefoxDriverProcesses = Process.GetProcessesByName("firefoxdriver");
-                foreach (var process in FirefoxDriverProcesses)
-                {
-                    process.Kill();
-                }
+                //Process[] FirefoxDriverProcesses = Process.GetProcessesByName("firefoxdriver");
+                //foreach (var process in FirefoxDriverProcesses)
+                //{
+                //    process.Kill();
+                //}
             }
             catch (Exception)
             {
