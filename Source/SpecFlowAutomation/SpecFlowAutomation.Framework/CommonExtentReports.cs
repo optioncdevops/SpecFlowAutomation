@@ -65,21 +65,6 @@ namespace SpecFlowAutomation.Framework
             //firefoxDriver.Manage().Timeouts().PageLoad.Add(System.TimeSpan.FromSeconds(60));
             //container.RegisterInstanceAs<IWebDriver>(firefoxDriver);
 
-            // Internet Explorer Driver Checking
-
-            //var options = new InternetExplorerOptions();
-            //options.IntroduceInstabilityByIgnoringProtectedModeSettings = true;
-
-            //var internetExplorerDriver = new InternetExplorerDriver(options); 
-            //internetExplorerDriver.Manage().Timeouts().PageLoad.Add(System.TimeSpan.FromSeconds(60));
-            //container.RegisterInstanceAs<IWebDriver>(internetExplorerDriver);
-
-
-            // Make 'driver' available for DI (Dependency injection)
-            // container.RegisterInstanceAs<IWebDriver>(firefoxDriver);
-
-
-
             //container.RegisterInstanceAs<ITestDataService>;
 
 
@@ -166,10 +151,23 @@ namespace SpecFlowAutomation.Framework
 
         public static void AfterTestRun()
         {
-            Process[] chromeDriverProcesses = Process.GetProcessesByName("chromedriver");
-            foreach (var chromeDriverProcess in chromeDriverProcesses)
+            try
             {
-                chromeDriverProcess.Kill();
+                Process[] chromeDriverProcesses = Process.GetProcessesByName("chromedriver");
+                foreach (var chromeDriverProcess in chromeDriverProcesses)
+                {
+                    chromeDriverProcess.Kill();
+                }
+
+                Process[] FirefoxDriverProcesses = Process.GetProcessesByName("firefoxdriver");
+                foreach (var process in FirefoxDriverProcesses)
+                {
+                    process.Kill();
+                }
+            }
+            catch (Exception)
+            {
+
             }
         }
     }
