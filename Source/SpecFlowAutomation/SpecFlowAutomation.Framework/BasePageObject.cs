@@ -15,7 +15,7 @@ namespace SpecFlowAutomation.Framework
     {
         protected readonly IWebDriver _webDriver;
         protected readonly IWait<IWebDriver> _wait;
-        protected readonly int iWebDriverType = 2; // 1 - IWebDriver and  2 - IWait
+        protected readonly int iWebDriverType = 1; // 1 - IWebDriver and  2 - IWait
 
         protected BasePageObject(IWebDriver webDriver)
         {

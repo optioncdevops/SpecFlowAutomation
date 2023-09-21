@@ -12,6 +12,8 @@ using System.Threading.Tasks;
 using static SpecFlowAutomation.Framework.CommonVariable;
 using TechTalk.SpecFlow;
 using AventStack.ExtentReports.Reporter;
+using OpenQA.Selenium.Firefox;
+using OpenQA.Selenium.IE;
 
 namespace SpecFlowAutomation.Framework
 {
@@ -50,18 +52,31 @@ namespace SpecFlowAutomation.Framework
             scenario = featureName.CreateNode<Scenario>(ScenarioContext.Current.ScenarioInfo.Title);
             // the IWebDriver interface
 
+            // Chrome Driver  Checking  
             ChromeOptions options = new ChromeOptions();
             options.AddArgument("no-sandbox");
-
             ChromeDriver driver = new ChromeDriver(ChromeDriverService.CreateDefaultService(), options, TimeSpan.FromMinutes(3));
             driver.Manage().Timeouts().PageLoad.Add(System.TimeSpan.FromSeconds(60));
+            container.RegisterInstanceAs<IWebDriver>(driver);
 
-            //ChromeDriver driver = new ChromeDriver();
-            //ChromeDriver driver = new ChromeDriver();
+
+            //// Firefox Driver Checking  
+            //FirefoxDriver firefoxDriver = new FirefoxDriver();
+            //firefoxDriver.Manage().Timeouts().PageLoad.Add(System.TimeSpan.FromSeconds(60));
+            //container.RegisterInstanceAs<IWebDriver>(firefoxDriver);
+
+            // Internet Explorer Driver Checking
+
+            //var options = new InternetExplorerOptions();
+            //options.IntroduceInstabilityByIgnoringProtectedModeSettings = true;
+
+            //var internetExplorerDriver = new InternetExplorerDriver(options); 
+            //internetExplorerDriver.Manage().Timeouts().PageLoad.Add(System.TimeSpan.FromSeconds(60));
+            //container.RegisterInstanceAs<IWebDriver>(internetExplorerDriver);
 
 
             // Make 'driver' available for DI (Dependency injection)
-            container.RegisterInstanceAs<IWebDriver>(driver);
+            // container.RegisterInstanceAs<IWebDriver>(firefoxDriver);
 
 
 

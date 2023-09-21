@@ -90,7 +90,10 @@ namespace SpecFlowAutomation.Framework.AcutisPages
         }
         public void NavigateToLogoutMenuPages()
         {
+            FindElementById(XPath_Menus.liSchool);
+            Thread.Sleep(2000);
             FindElementById(XPath_Menus.liLogout);
+            // FindElementByLinkText("Sign Out");
         }
 
     }

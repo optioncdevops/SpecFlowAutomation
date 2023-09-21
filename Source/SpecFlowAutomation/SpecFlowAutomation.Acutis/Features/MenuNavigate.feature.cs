@@ -102,9 +102,6 @@ this.ScenarioInitialize(scenarioInfo);
  testRunner.Given("Launch the application with valid user credentials \'<URL>\' and \'<UserName>\' and t" +
                         "he \'<Password>\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 12
- testRunner.Then("Navigate to all the Ticket Menu Pages", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line hidden
 #line 20
  testRunner.Then("Navigate to User Details to the process", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
