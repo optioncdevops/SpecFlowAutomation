@@ -1,0 +1,12 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/.vs
+/Source/SpecFlowAutomation/.vs/SpecFlowAutomation
+/Source/SpecFlowAutomation/SpecFlowAutomation/bin/Debug/net6.0
+/Source/SpecFlowAutomation/SpecFlowAutomation/obj
+/Source/SpecFlowAutomation/SpecFlowAutomation.Acutis/bin/Debug/net6.0
+/Source/SpecFlowAutomation/SpecFlowAutomation.Acutis/obj
+/Source/SpecFlowAutomation/SpecFlowAutomation.Framework/bin/Debug/net6.0
+/Source/SpecFlowAutomation/SpecFlowAutomation.Framework/obj
