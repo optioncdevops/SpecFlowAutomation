@@ -477,7 +477,6 @@ namespace SpecFlowAutomation.Framework
         public void ClickOnEdit()
         {
             FindElementById(XPath_Button.btnEdit);
-            //_webDriver.FindElement(By.XPath("(//*[@id='btnEdit'][1])")).Click(); 
         }
         public void ClickOnDelete()
         {
@@ -499,7 +498,6 @@ namespace SpecFlowAutomation.Framework
         public void ClickOnUpdate()
         {
             FindElementById(XPath_Button.btnUpdate);
-            //_webDriver.FindElement(By.XPath("(//*[@id='btnEdit'][1])")).Click(); 
         }
         #endregion
         

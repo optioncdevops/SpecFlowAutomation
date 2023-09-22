@@ -14,6 +14,7 @@ using TechTalk.SpecFlow;
 using AventStack.ExtentReports.Reporter;
 using OpenQA.Selenium.Firefox;
 using OpenQA.Selenium.IE;
+using OpenQA.Selenium.Edge;
 
 namespace SpecFlowAutomation.Framework
 {
@@ -68,6 +69,10 @@ namespace SpecFlowAutomation.Framework
             //container.RegisterInstanceAs<ITestDataService>;
 
 
+            // Firefox Driver Checking  
+            EdgeDriver edgeDriver = new EdgeDriver();
+            edgeDriver.Manage().Timeouts().PageLoad.Add(System.TimeSpan.FromSeconds(60));
+            container.RegisterInstanceAs<IWebDriver>(edgeDriver);
 
 
         }
