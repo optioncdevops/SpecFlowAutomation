@@ -15,6 +15,10 @@ using AventStack.ExtentReports.Reporter;
 using OpenQA.Selenium.Firefox;
 using OpenQA.Selenium.IE;
 using OpenQA.Selenium.Edge;
+using OpenQA.Selenium;
+using OpenQA.Selenium.Chrome;
+using OpenQA.Selenium.Support.UI;
+
 
 namespace SpecFlowAutomation.Framework
 {
@@ -23,58 +27,67 @@ namespace SpecFlowAutomation.Framework
 
         private static ExtentTest featureName;
         public static ExtentTest scenario;
+        static IWebDriver driver = null;
+
 
         static AventStack.ExtentReports.ExtentReports extent;
 
         static string reportpath = System.IO.Directory.GetParent(@"../../../").FullName
              + Path.DirectorySeparatorChar + "Result"
              + Path.DirectorySeparatorChar + "Result_" + DateTime.Now.ToString("ddmmyyyyHHmmss");
-
-
         public static void BeforeTestRun()
         {
             //Create dynamic feature name
             ExtentHtmlReporter htmlReport = new ExtentHtmlReporter(reportpath);
             extent = new AventStack.ExtentReports.ExtentReports();
             extent.AttachReporter(htmlReport);
-
-
-
         }
         public static void BeforeFeature()
         {
             //Create dynamic feature name
             featureName = extent.CreateTest<Feature>(FeatureContext.Current.FeatureInfo.Title);
-
         }
 
         public static void BeforeScenario(IObjectContainer container)
         {
             scenario = featureName.CreateNode<Scenario>(ScenarioContext.Current.ScenarioInfo.Title);
-            // the IWebDriver interface
-
-            // Chrome Driver  Checking  
-            ChromeOptions options = new ChromeOptions();
-            options.AddArgument("no-sandbox");
-            ChromeDriver driver = new ChromeDriver(ChromeDriverService.CreateDefaultService(), options, TimeSpan.FromMinutes(3));
-            driver.Manage().Timeouts().PageLoad.Add(System.TimeSpan.FromSeconds(60));
+            //string browser = ScenarioContext.Current.ScenarioInfo.Tags[0].ToString();
+            string browser = "IE";
+           
+            switch (browser)
+            {
+                case "Safari":
+                    break;
+                case "Chrome": // Chrome Driver  Checking  
+                    ChromeOptions options = new ChromeOptions();
+                    options.AddArgument("no-sandbox");
+                    driver = new ChromeDriver(ChromeDriverService.CreateDefaultService(), options, TimeSpan.FromMinutes(3));
+                    driver.Manage().Timeouts().PageLoad.Add(System.TimeSpan.FromSeconds(120));
+                    break;
+                case "Firefox": // Firefox Driver Checking  
+                    driver = new FirefoxDriver();
+                    driver.Manage().Timeouts().PageLoad.Add(System.TimeSpan.FromSeconds(120));
+                    break;
+                case "Edge": // Firefox Driver Checking  
+                    driver = new EdgeDriver();
+                    driver.Manage().Timeouts().PageLoad.Add(System.TimeSpan.FromSeconds(120));
+                    break;
+                case "IE": // Internet Explorer Driver Checking 
+                    InternetExplorerOptions ieoptions = new InternetExplorerOptions();
+                    ieoptions.IntroduceInstabilityByIgnoringProtectedModeSettings = true;
+                    ieoptions.IgnoreZoomLevel = true;
+                    driver = new InternetExplorerDriver(ieoptions);
+                    driver.Manage().Timeouts().PageLoad.Add(System.TimeSpan.FromSeconds(120));
+                    break;
+                default: // Chrome Driver  Checking  
+                    ChromeOptions defoptions = new ChromeOptions();
+                    defoptions.AddArgument("no-sandbox");
+                    driver = new ChromeDriver(ChromeDriverService.CreateDefaultService(), defoptions, TimeSpan.FromMinutes(3));
+                    driver.Manage().Timeouts().PageLoad.Add(System.TimeSpan.FromSeconds(120));
+                  
+                    break;
+            }
             container.RegisterInstanceAs<IWebDriver>(driver);
-
-
-            //// Firefox Driver Checking  
-            //FirefoxDriver firefoxDriver = new FirefoxDriver();
-            //firefoxDriver.Manage().Timeouts().PageLoad.Add(System.TimeSpan.FromSeconds(60));
-            //container.RegisterInstanceAs<IWebDriver>(firefoxDriver);
-
-            //container.RegisterInstanceAs<ITestDataService>;
-
-
-            // Firefox Driver Checking  
-            EdgeDriver edgeDriver = new EdgeDriver();
-            edgeDriver.Manage().Timeouts().PageLoad.Add(System.TimeSpan.FromSeconds(60));
-            container.RegisterInstanceAs<IWebDriver>(edgeDriver);
-
-
         }
 
         public static void AfterStep(IObjectContainer container)
@@ -156,6 +169,7 @@ namespace SpecFlowAutomation.Framework
 
         public static void AfterTestRun()
         {
+          
             try
             {
                 Process[] chromeDriverProcesses = Process.GetProcessesByName("chromedriver");
@@ -163,16 +177,12 @@ namespace SpecFlowAutomation.Framework
                 {
                     chromeDriverProcess.Kill();
                 }
-
-                //Process[] FirefoxDriverProcesses = Process.GetProcessesByName("firefoxdriver");
-                //foreach (var process in FirefoxDriverProcesses)
-                //{
-                //    process.Kill();
-                //}
+                driver.Close();
+                driver.Quit();
+                driver.Dispose();
             }
             catch (Exception)
             {
-
             }
         }
     }

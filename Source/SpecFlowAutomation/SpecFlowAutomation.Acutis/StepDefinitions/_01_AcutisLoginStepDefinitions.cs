@@ -1,3 +1,4 @@
+using NUnit.Framework;
 using NUnit.Framework.Interfaces;
 using OpenQA.Selenium;
 using SpecFlowAutomation.Framework.AcutisPages;
@@ -31,7 +32,7 @@ namespace SpecFlowAutomation.Acutis.StepDefinitions
         public void GivenEnterTheUserNameAndThePassword()
         {
             
-            loginPage.SendLoginCredential("jclement@optionc.com", "password");
+            loginPage.SendLoginCredential("jclement@optionc.com", "password1");
 
         }
 
@@ -44,7 +45,9 @@ namespace SpecFlowAutomation.Acutis.StepDefinitions
         [Then(@"The Dashboard should be opened")]
         public void ThenTheDashboardShouldBeOpened()
         {
-            
+           
+
+            Assert.AreEqual("TICKET STATISTICS1", ss.ToString().Trim());
         }
     }
 }

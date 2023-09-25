@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using static SpecFlowAutomation.Framework.CommonVariable;
+using System.Xml.Linq;
 
 namespace SpecFlowAutomation.Framework
 {
@@ -27,16 +28,20 @@ namespace SpecFlowAutomation.Framework
 
         public void OpenWebDriver(string url)
         {
-            if (iWebDriverType == 1)
+            try
             {
                 _webDriver.Navigate().GoToUrl(url);
-                _webDriver.Manage().Window.Maximize();
             }
-            else
+            catch (Exception e)
             {
-                _webDriver.Navigate().GoToUrl(url);
-                _webDriver.Manage().Window.Maximize();
+
+                _webDriver.FindElement(By.XPath("//*[@id=\"advancedButton\"]")).Click();
+                Thread.Sleep(2000);
+                _webDriver.FindElement(By.XPath("//*[@id=\"exceptionDialogButton\"]")).Click();
+
             }
+            _webDriver.Manage().Window.Maximize();
+
         }
 
         #region Find the Element By Id 
@@ -500,7 +505,7 @@ namespace SpecFlowAutomation.Framework
             FindElementById(XPath_Button.btnUpdate);
         }
         #endregion
-        
+
         #region   Commom Methods
 
         //Common method for converting the given date into MM/DD/YYYY format

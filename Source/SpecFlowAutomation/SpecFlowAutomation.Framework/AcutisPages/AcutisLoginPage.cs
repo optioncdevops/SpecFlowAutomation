@@ -31,6 +31,15 @@ namespace SpecFlowAutomation.Framework.AcutisPages
             FindElementById(XPath_Menus.liLogout);
         }
 
+
+        public string GetHeaderName()
+        {
+           // string ss = driver.FindElement(By.XPath("//*[@id='tblheader']")).Text;
+            // Console.WriteLine(ss);
+
+            return FindElementByXPath("//*[@id='tblheader']","", "Text");
+        }
+
         public void LoginProcess(JsonLogin jsonLogin)
         {
             OpenWebDriver(jsonLogin.URL);
