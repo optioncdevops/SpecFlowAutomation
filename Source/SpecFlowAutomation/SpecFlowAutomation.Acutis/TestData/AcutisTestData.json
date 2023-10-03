@@ -1,5 +1,6 @@
 {
-  "Login": {
+
+  "JsonLogin": {
     "URL": "https://viper.allnewoptionc.com",
     "UserName": "jclement@optionc.com",
     "Password": "password"
@@ -10,6 +11,9 @@
     "LastName": "Selenium",
     "UserName": "Specflow@Selenium.com",
     "Password": "Specflow@123",
-    "UserRole": "1"
+    "UserRole": "1",
+    "EditFirstName": "Specflow1101_Edit",
+    "EditLastName": "Selenium_Edit"
   }
+
 }

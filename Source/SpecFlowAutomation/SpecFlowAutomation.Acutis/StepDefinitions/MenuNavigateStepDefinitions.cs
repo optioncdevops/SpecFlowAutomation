@@ -27,8 +27,8 @@ namespace SpecFlowAutomation.Acutis.StepDefinitions
         [Given(@"Launch the application with valid user credentials '([^']*)' and '([^']*)' and the '([^']*)'")]
         public void GivenLaunchTheApplicationWithValidUserCredentialsAndAndThe(string uRL, string userName, string password)
         {
-            if (testData.Login != null)
-                loginPage.LoginProcess(testData.Login);
+            if (testData.JsonLogin != null)
+                loginPage.LoginProcess(testData.JsonLogin);
         }
 
         [Then(@"Navigate to all the School Menu Pages")]

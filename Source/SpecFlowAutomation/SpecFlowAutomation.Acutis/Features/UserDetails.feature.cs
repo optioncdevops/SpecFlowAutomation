@@ -101,39 +101,40 @@ this.ScenarioInitialize(scenarioInfo);
             {
                 this.ScenarioStart();
 #line 5
- testRunner.Given(string.Format("Launch the application with valid user credentials \'{0}\' and \'{1}\' and the \'{2}\'", uRL, userName, password), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+ testRunner.Given("Launch the application with valid user credentials URL and UserName and the Passw" +
+                        "ord", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
 #line 6
- testRunner.When("The Dashboard should be open", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+ testRunner.When("Click on Administration menu and selct User Detail Sub menu", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 7
- testRunner.Then("Click on Administration menu and selct UserDetail Sub menu", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line hidden
-#line 8
     testRunner.And("UserDetail page should be opened and click on Addnewuser button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 9
- testRunner.And(string.Format("New user page should be opened and enter the basic info of \'{0}\' \'{1}\' \'{2}\' \'{3}" +
-                            "\'", firstName, lastName, email, emailPwd), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 8
+ testRunner.And("New user page should be opened and enter the basic info of FirstName, LastName, U" +
+                        "sername and password and user typen", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 10
+#line 9
  testRunner.And("click on save button and the record should be saved", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
+#line 10
+ testRunner.And("Search Username and Click on Edit button and update the fields EditFirstName and " +
+                        "EditLastName and click on save button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
 #line 11
- testRunner.And(string.Format("Search \'{0}\' and Click on Edit button and update the fields \'{1}\' \'{2}\' and click" +
-                            " on save button", email, editFirstName, editLastName), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And("Search Username and Click on Delete Button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 12
- testRunner.And(string.Format("Search \'{0}\' and Click on Delete Button to delete the records", email), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line hidden
-#line 13
  testRunner.Then("Delete Alert Confirm box should open and Click on the No button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
+#line 13
+ testRunner.And("Search Username and Click on Delete Button to delete the records", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
 #line 14
- testRunner.And(string.Format("Search \'{0}\' and Click on Delete Button to delete the records", email), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.Then("Delete Alert Confirm Box should open and Click on the Yes button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
 #line 15
- testRunner.Then("Delete Alert Confirm Box should open and Click on the Yes button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.And("User should be able to logout from the application", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             }
             this.ScenarioCleanup();

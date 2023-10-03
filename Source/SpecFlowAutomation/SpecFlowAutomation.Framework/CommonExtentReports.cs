@@ -52,7 +52,7 @@ namespace SpecFlowAutomation.Framework
         {
             scenario = featureName.CreateNode<Scenario>(ScenarioContext.Current.ScenarioInfo.Title);
             //string browser = ScenarioContext.Current.ScenarioInfo.Tags[0].ToString();
-            string browser = "IE";
+            string browser = "Chrome";
            
             switch (browser)
             {

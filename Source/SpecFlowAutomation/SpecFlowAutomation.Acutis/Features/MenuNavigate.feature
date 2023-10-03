@@ -6,7 +6,8 @@ A short summary of the feature
 @Dataset:Ticket
 
 Scenario: 001_Viper Login as a admin with valid user credentials
-	Given Launch the application with valid user credentials '<URL>' and '<UserName>' and the '<Password>'
+	#Given Launch the application with valid user credentials '<URL>' and '<UserName>' and the '<Password>'
+	Given Launch the application with valid user credentials URL and UserName and the Password
 	#Then Navigate to all the School Menu Pages
 	#Then Navigate to all the Dioceses Menu Pages
 	#Then Navigate to all the Ticket Menu Pages

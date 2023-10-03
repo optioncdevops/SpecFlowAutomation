@@ -11,6 +11,7 @@ namespace SpecFlowAutomation.Framework.AcutisPages.Administration
 {
     public class UserDetailsPage : BasePageObject
     {
+
         public UserDetailsPage(IWebDriver webDriver) : base(webDriver) { }
         public void CheckPageTitle()
         {
@@ -34,22 +35,8 @@ namespace SpecFlowAutomation.Framework.AcutisPages.Administration
             FindElementById(XPath_UserDetails.txtpassword, EmailPwd);
             FindElementById(XPath_UserDetails.rolename, "1", "Select");
         }
-        public new void ClickOnSave()
-        {
-            FindElementById(XPath_Button.btnSave);
-        }
-        public new void ClickOnCancel()
-        {
-            FindElementById(XPath_Button.btnCancel);
-        }
-        public void ClickOnUserEdit()
-        {
-            FindElementById(XPath_Button.btnEdit);
-        }
-        public void ClickOnUserDelete()
-        {
-            FindElementById(XPath_Button.btnDelete);
-        }
+         
+         
         public void EditUserDetails(string EditFirstName, string EditLastName)
         {
             FindElementById(XPath_UserDetails.txtfirstname, EditFirstName);
@@ -64,12 +51,12 @@ namespace SpecFlowAutomation.Framework.AcutisPages.Administration
             EnterUserDetails("HpTest", "Hp LastName", "HpTest@gmail.com", "HpTest!123");
             ClickOnSave();
             GridSearch("HpTest@gmail.com");
-            ClickOnUserEdit();
+            ClickOnEdit();
             EditUserDetails("HpTest Edit", "HpTest Edit Last");
             ClickOnSave();
-            ClickOnUserDelete();
+            ClickOnDelete();
             ClickDeleteConfirmNo();
-            ClickOnUserDelete();
+            ClickOnDelete();
             ClickDeleteConfirmYes();
         }
     }

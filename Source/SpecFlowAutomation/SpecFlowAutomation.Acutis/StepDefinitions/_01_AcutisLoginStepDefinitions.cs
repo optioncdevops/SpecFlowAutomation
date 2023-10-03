@@ -18,22 +18,17 @@ namespace SpecFlowAutomation.Acutis.StepDefinitions
             this.loginPage = new AcutisLoginPage(driver);
         }
 
-
-
-
-
         [Given(@"Launch the application with URL")]
         public void GivenLaunchTheApplicationWithURL()
         {
-            loginPage.OpenWebDriver("https://viper.allnewoptionc.com");
+            loginPage.OpenWebDriver(loginPage.jsonData.JsonLogin.URL.ToString());
         }
 
         [Given(@"Enter the UserName and the Password")]
         public void GivenEnterTheUserNameAndThePassword()
         {
             
-            loginPage.SendLoginCredential("jclement@optionc.com", "password");
-
+            loginPage.SendLoginCredential(loginPage.jsonData.JsonLogin.UserName.ToString(), loginPage.jsonData.JsonLogin.Password.ToString());
         }
 
         [When(@"I click the login button")]
@@ -47,5 +42,15 @@ namespace SpecFlowAutomation.Acutis.StepDefinitions
         {
             loginPage.CheckTitle();
         }
+
+        [Given(@"Launch the application with valid user credentials URL and UserName and the Password")]
+        public void GivenLaunchTheApplicationWithValidUserCredentialsURLAndUserNameAndThePassword()
+        {
+            loginPage.OpenWebDriver(loginPage.jsonData.JsonLogin.URL.ToString());
+            loginPage.SendLoginCredential(loginPage.jsonData.JsonLogin.UserName.ToString(), loginPage.jsonData.JsonLogin.Password.ToString());
+            loginPage.ClickOnLogin();
+            loginPage.CheckTitle();
+        }
+
     }
 }
