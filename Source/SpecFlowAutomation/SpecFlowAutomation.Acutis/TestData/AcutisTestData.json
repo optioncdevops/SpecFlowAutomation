@@ -3,5 +3,13 @@
     "URL": "https://viper.allnewoptionc.com",
     "UserName": "jclement@optionc.com",
     "Password": "password"
+  },
+
+  "UserDetails": {
+    "FirstName": "Specflow1101",
+    "LastName": "Selenium",
+    "UserName": "Specflow@Selenium.com",
+    "Password": "Specflow@123",
+    "UserRole": "1"
   }
 }

@@ -26,8 +26,6 @@ namespace SpecFlowAutomation.Framework.AcutisPages.Administration
             FindElementById(XPath_Button.btnAddUser);
             Thread.Sleep(1000);
         }
-
-
         public void EnterUserDetails(string FirstName, string LastName, string Email, string EmailPwd)
         {
             FindElementById(XPath_UserDetails.txtfirstname, FirstName);
@@ -36,12 +34,11 @@ namespace SpecFlowAutomation.Framework.AcutisPages.Administration
             FindElementById(XPath_UserDetails.txtpassword, EmailPwd);
             FindElementById(XPath_UserDetails.rolename, "1", "Select");
         }
-
-        public void ClickOnSave()
+        public new void ClickOnSave()
         {
             FindElementById(XPath_Button.btnSave);
         }
-        public void ClickOnCancel()
+        public new void ClickOnCancel()
         {
             FindElementById(XPath_Button.btnCancel);
         }
@@ -58,8 +55,6 @@ namespace SpecFlowAutomation.Framework.AcutisPages.Administration
             FindElementById(XPath_UserDetails.txtfirstname, EditFirstName);
             FindElementById(XPath_UserDetails.txtlastname, EditLastName);
         }
-
-
         public void UserDetailsProcess()
         {
             ClickOnUserDetails();
@@ -77,8 +72,6 @@ namespace SpecFlowAutomation.Framework.AcutisPages.Administration
             ClickOnUserDelete();
             ClickDeleteConfirmYes();
         }
-
-
     }
 
 }

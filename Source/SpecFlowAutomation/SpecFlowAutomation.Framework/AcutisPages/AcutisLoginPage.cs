@@ -1,4 +1,5 @@
-﻿using OpenQA.Selenium;
+﻿using NUnit.Framework;
+using OpenQA.Selenium;
 using SpecFlowAutomation.Framework.JsonTestData;
 using System;
 using System.Collections.Generic;
@@ -31,13 +32,10 @@ namespace SpecFlowAutomation.Framework.AcutisPages
             FindElementById(XPath_Menus.liLogout);
         }
 
-
-        public string GetHeaderName()
+        public void CheckTitle()
         {
-           // string ss = driver.FindElement(By.XPath("//*[@id='tblheader']")).Text;
-            // Console.WriteLine(ss);
-
-            return FindElementByXPath("//*[@id='tblheader']","", "Text");
+            string ss = _webDriver.FindElement(By.XPath("//*[@id='tblheader']")).Text; //FindElementByXPath("//*[@id='tblheader']","", "Text");
+            Assert.AreEqual("TICKET STATISTICS", ss.ToString().Trim());
         }
 
         public void LoginProcess(JsonLogin jsonLogin)

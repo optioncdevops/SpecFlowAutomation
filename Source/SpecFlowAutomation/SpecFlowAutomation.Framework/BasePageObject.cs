@@ -9,6 +9,8 @@ using System.Text;
 using System.Threading.Tasks;
 using static SpecFlowAutomation.Framework.CommonVariable;
 using System.Xml.Linq;
+using SpecFlowAutomation.Framework.JsonTestData;
+using NUnit.Framework.Interfaces;
 
 namespace SpecFlowAutomation.Framework
 {
@@ -17,6 +19,7 @@ namespace SpecFlowAutomation.Framework
         protected readonly IWebDriver _webDriver;
         protected readonly IWait<IWebDriver> _wait;
         protected readonly int iWebDriverType = 2; // 1 - IWebDriver and  2 - IWait
+        public AcutisJsonDataObjects jsonData;
 
         protected BasePageObject(IWebDriver webDriver)
         {
@@ -24,6 +27,8 @@ namespace SpecFlowAutomation.Framework
             webDriver.Manage().Timeouts().ImplicitWait = TimeSpan.FromMilliseconds(5000);
             _wait = new WebDriverWait(webDriver, TimeSpan.FromSeconds(120));
             _webDriver = webDriver;
+            jsonData = (AcutisJsonDataObjects)JsonDataReader.GetJsonData("Acutis");
+
         }
 
         public void OpenWebDriver(string url)
@@ -43,6 +48,10 @@ namespace SpecFlowAutomation.Framework
             _webDriver.Manage().Window.Maximize();
 
         }
+
+
+
+
 
         #region Find the Element By Id 
 
@@ -460,7 +469,7 @@ namespace SpecFlowAutomation.Framework
 
         public void ClickOnAdd()
         {
-            FindElementById(XPath_Button.btnAddUser);
+            FindElementById(XPath_Button.btnAdd);
         }
         public void ClickOnSave()
         {

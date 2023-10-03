@@ -32,7 +32,7 @@ namespace SpecFlowAutomation.Acutis.StepDefinitions
         public void GivenEnterTheUserNameAndThePassword()
         {
             
-            loginPage.SendLoginCredential("jclement@optionc.com", "password1");
+            loginPage.SendLoginCredential("jclement@optionc.com", "password");
 
         }
 
@@ -45,9 +45,7 @@ namespace SpecFlowAutomation.Acutis.StepDefinitions
         [Then(@"The Dashboard should be opened")]
         public void ThenTheDashboardShouldBeOpened()
         {
-           
-
-            Assert.AreEqual("TICKET STATISTICS1", ss.ToString().Trim());
+            loginPage.CheckTitle();
         }
     }
 }
