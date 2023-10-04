@@ -18,7 +18,7 @@ namespace SpecFlowAutomation.Framework
     {
         protected readonly IWebDriver _webDriver;
         protected readonly IWait<IWebDriver> _wait;
-        protected readonly int iWebDriverType = 2; // 1 - IWebDriver and  2 - IWait
+        protected readonly int iWebDriverType = 1; // 1 - IWebDriver and  2 - IWait
         public AcutisJsonDataObjects jsonData;
 
         protected BasePageObject(IWebDriver webDriver)
@@ -480,7 +480,7 @@ namespace SpecFlowAutomation.Framework
         {
             FindElementById(XPath_Button.btnCancel);
         }
-        public void GridSearch(string SearchValue)
+        public void GridSearch(string? SearchValue)
         {
             FindElementByXPath("//*[@class='form-control input-small input-inline']", SearchValue);
         }

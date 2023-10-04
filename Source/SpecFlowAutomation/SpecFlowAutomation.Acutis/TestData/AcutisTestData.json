@@ -14,6 +14,12 @@
     "UserRole": "1",
     "EditFirstName": "Specflow1101_Edit",
     "EditLastName": "Selenium_Edit"
+  },
+  "UserRole": {
+    "RoleName": "SpecflowRole",
+    "Description": "SpecflowRole",
+    "LandingPage": "1",
+    "EditRoleName": "SpecflowRole_Edit"
   }
 
 }

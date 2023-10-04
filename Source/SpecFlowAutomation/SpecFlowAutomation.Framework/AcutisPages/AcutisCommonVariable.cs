@@ -102,6 +102,7 @@ namespace SpecFlowAutomation.Framework.AcutisPages
         }
 
 
+
         public static class XPath_SchoolDetails
         {
             public const string checkCustomers = nameof(checkCustomers);
@@ -160,8 +161,20 @@ namespace SpecFlowAutomation.Framework.AcutisPages
             public const string Documentation = "staffDirectoryModel_Documentation";
 
         }
+        public static class XPath_UserRole
+        {
+            public const string txtrolename = nameof(txtrolename);
+            public const string txtdiscription = nameof(txtdiscription);
+            public const string ddllandingpage = nameof(ddllandingpage);
+            public const string btnRoleSave = "//button[@class='btn btn-success filter-btn']";
+            public const string btnRoleCancel = "//a[@class='btn btn-secondary filter-btn']";
 
-        public static class XPath_SchoolListWorkLoad
+
+        
+        }
+
+
+            public static class XPath_SchoolListWorkLoad
         {
             public const string ddlDio = nameof(ddlDio);
 

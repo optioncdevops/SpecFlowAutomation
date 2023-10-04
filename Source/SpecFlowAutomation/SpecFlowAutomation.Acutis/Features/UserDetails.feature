@@ -1,7 +1,7 @@
 ﻿Feature:02_UserDetail
 A short summary of the feature
 
-Scenario: 001_UserDetail as a admin with valid user credentials
+Scenario: 002_UserDetail as a admin with valid user credentials
 	Given Launch the application with valid user credentials URL and UserName and the Password
 	When Click on Administration menu and selct User Detail Sub menu
     And UserDetail page should be opened and click on Addnewuser button
@@ -14,7 +14,4 @@ Scenario: 001_UserDetail as a admin with valid user credentials
 	Then Delete Alert Confirm Box should open and Click on the Yes button 
 	And User should be able to logout from the application
 
-
-Examples: 
-| URL                             | UserName             | Password | FirstName | LastName | Email        | EmailPwd | EditFirstName | EditLastName |
-| https://viper.allnewoptionc.com | jclement@optionc.com | password | HpTest    | User     | hp1@gmail.com | testing  | EditTest      | User1        |
+ 

@@ -10,6 +10,8 @@ namespace SpecFlowAutomation.Framework.JsonTestData
     {
         public JsonLogin? JsonLogin { get; set; }
         public UserDetails? UserDetails { get; set; }
+        public UserRole? UserRole { get; set; }
+
     }
     public class JsonLogin
     {
@@ -17,7 +19,13 @@ namespace SpecFlowAutomation.Framework.JsonTestData
         public string? UserName { get; set; }
         public string? Password { get; set; }
     }
-
+    public class UserRole
+    {
+        public string? RoleName { get; set; }
+        public string? Description { get; set; }
+        public string? LandingPage { get; set; }
+        public string? EditRoleName { get; set; }
+    }
     public class UserDetails
     {
         public string? FirstName { get; set; }
