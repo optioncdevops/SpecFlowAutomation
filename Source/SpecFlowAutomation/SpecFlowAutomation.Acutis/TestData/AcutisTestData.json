@@ -20,6 +20,12 @@
     "Description": "SpecflowRole",
     "LandingPage": "1",
     "EditRoleName": "SpecflowRole_Edit"
-  }
+  },
 
+  "TrainingSchedule": {
+    "Name": "Sample Training Schedule",
+    "Duration": "2",
+    "Description": "sample description",
+    "Url": "https://sampleurl.com"
+  }
 }

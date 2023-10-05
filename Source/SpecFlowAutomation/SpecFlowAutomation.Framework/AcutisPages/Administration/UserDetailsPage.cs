@@ -47,7 +47,7 @@ namespace SpecFlowAutomation.Framework.AcutisPages.Administration
             ClickOnUserDetails();
             ClickOnAddUser();
             ClickOnCancel();
-            ClickOnAdd();
+            ClickOnAddUser();
             EnterUserDetails("HpTest", "Hp LastName", "HpTest@gmail.com", "HpTest!123");
             ClickOnSave();
             GridSearch("HpTest@gmail.com");

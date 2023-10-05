@@ -173,8 +173,16 @@ namespace SpecFlowAutomation.Framework.AcutisPages
         
         }
 
-
-            public static class XPath_SchoolListWorkLoad
+        public static class XPath_TrainingSchedule
+        {
+            public const string btnAddTrainingSchedule = "//*[text()='Add New Training Schedule']";
+            public const string txtname = nameof(txtname);
+            public const string txtduration = nameof(txtduration);
+            public const string txtDescription = nameof(txtDescription);
+            public const string txturl = nameof(txturl);
+            public const string ddltriner = nameof(ddltriner);
+        }
+        public static class XPath_SchoolListWorkLoad
         {
             public const string ddlDio = nameof(ddlDio);
 
