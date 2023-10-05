@@ -4,7 +4,7 @@ using SpecFlowAutomation.Framework.JsonTestData;
 using System;
 using TechTalk.SpecFlow;
 
-namespace SpecFlowAutomation.Acutis.StepDefinitions
+namespace SpecFlowAutomation.Acutis.StepDefinitions.Administration
 {
     [Binding]
     public class UserRoleStepDefinitions
@@ -13,7 +13,7 @@ namespace SpecFlowAutomation.Acutis.StepDefinitions
 
         public UserRoleStepDefinitions(IWebDriver driver)
         {
-            this.userRolePage = new UserRolePage(driver);
+            userRolePage = new UserRolePage(driver);
         }
 
 
@@ -27,7 +27,7 @@ namespace SpecFlowAutomation.Acutis.StepDefinitions
         [When(@"User Role page should be opened and click on Addnewrole button")]
         public void WhenUserRolePageShouldBeOpenedAndClickOnAddnewroleButton()
         {
-            userRolePage.ClickOnAddUserRole();
+            userRolePage.ClickOnAdd();
         }
 
         [When(@"Click on Role Cancel button")]

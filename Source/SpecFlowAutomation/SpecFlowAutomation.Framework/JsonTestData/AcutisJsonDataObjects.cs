@@ -26,6 +26,7 @@ namespace SpecFlowAutomation.Framework.JsonTestData
         public string? LandingPage { get; set; }
         public string? EditRoleName { get; set; }
     }
+
     public class UserDetails
     {
         public string? FirstName { get; set; }

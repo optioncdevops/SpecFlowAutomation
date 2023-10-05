@@ -42,17 +42,17 @@ namespace SpecFlowAutomation.Framework.AcutisPages.Administration
             FindElementById(XPath_UserDetails.txtfirstname, EditFirstName);
             FindElementById(XPath_UserDetails.txtlastname, EditLastName);
         }
-        public void UserDetailsProcess()
+        public void UserDetailsProcess(JsonTestData.UserDetails userDetails)
         {
             ClickOnUserDetails();
             ClickOnAddUser();
             ClickOnCancel();
             ClickOnAddUser();
-            EnterUserDetails("HpTest", "Hp LastName", "HpTest@gmail.com", "HpTest!123");
+            EnterUserDetails(userDetails.FirstName, userDetails.LastName, userDetails.UserName, userDetails.Password);
             ClickOnSave();
-            GridSearch("HpTest@gmail.com");
+            GridSearch(userDetails.UserName);
             ClickOnEdit();
-            EditUserDetails("HpTest Edit", "HpTest Edit Last");
+            EditUserDetails(userDetails.EditFirstName, userDetails.EditLastName);
             ClickOnSave();
             ClickOnDelete();
             ClickDeleteConfirmNo();

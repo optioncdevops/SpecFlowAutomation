@@ -4,7 +4,7 @@ using SpecFlowAutomation.Framework.AcutisPages.Administration;
 using System;
 using TechTalk.SpecFlow;
 
-namespace SpecFlowAutomation.Acutis.StepDefinitions
+namespace SpecFlowAutomation.Acutis.StepDefinitions.Administration
 {
     [Binding]
     public class UserDetailStepDefinitions
@@ -15,7 +15,7 @@ namespace SpecFlowAutomation.Acutis.StepDefinitions
 
         public UserDetailStepDefinitions(IWebDriver driver)
         {
-            this.userDetails = new UserDetailsPage(driver);
+            userDetails = new UserDetailsPage(driver);
         }
 
 

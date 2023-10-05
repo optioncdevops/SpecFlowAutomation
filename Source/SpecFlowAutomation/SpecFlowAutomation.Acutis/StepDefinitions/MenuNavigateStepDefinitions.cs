@@ -13,6 +13,9 @@ namespace SpecFlowAutomation.Acutis.StepDefinitions
 
         private readonly AcutisLoginPage loginPage;
         private readonly UserDetailsPage userPage;
+        private readonly UserRolePage userRole;
+        private readonly TrainingSchedule trainingSchedule;
+        
         private readonly MenuNavigationPage navigationPage;
         private readonly AcutisJsonDataObjects testData;
 
@@ -20,6 +23,8 @@ namespace SpecFlowAutomation.Acutis.StepDefinitions
         {
             this.loginPage = new AcutisLoginPage(driver);
             this.userPage = new UserDetailsPage(driver);
+            this.userRole = new UserRolePage(driver);
+            this.trainingSchedule = new TrainingSchedule(driver);
             this.navigationPage = new MenuNavigationPage(driver);
             testData = (AcutisJsonDataObjects)JsonDataReader.GetJsonData("Acutis");
         }
@@ -95,8 +100,26 @@ namespace SpecFlowAutomation.Acutis.StepDefinitions
         [Then(@"Navigate to User Details to the process")]
         public void ThenNavigateToUserDetailsToTheProcess()
         {
-            userPage.UserDetailsProcess();
+            userPage.UserDetailsProcess(userPage.jsonData.UserDetails);
         }
+
+        [Then(@"Navigate to User Role to the process")]
+        public void ThenNavigateToUserRoleToTheProcess()
+        {
+            userRole.UserRoleProcess(userPage.jsonData.UserRole);
+
+        }
+
+        [Then(@"Navigate to Training Schedule to the process")]
+        public void ThenNavigateToTrainingScheduleToTheProcess()
+        {
+            trainingSchedule.TrainingScheduleProcess();
+
+
+        }
+
+
+
 
         [Then(@"Navigate to Customer Directory to the process")]
         public void ThenNavigateToCustomerDirectoryToTheProcess()

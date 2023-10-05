@@ -21,12 +21,7 @@ namespace SpecFlowAutomation.Framework.AcutisPages.Administration
             FindElementById(XPath_Menus.liAdministration);
             FindElementById(XPath_Menus.liUserRole);
         }
-        public void ClickOnAddUserRole()
-        {
-            FindElementById(XPath_Button.btnAdd);
-            Thread.Sleep(1000);
-        }
-
+       
         public void ClickOnRoleCancel()
         {
             FindElementByXPath(XPath_UserRole.btnRoleCancel);
@@ -49,18 +44,18 @@ namespace SpecFlowAutomation.Framework.AcutisPages.Administration
         {
             FindElementById(XPath_UserRole.txtrolename, EditRoleName);
         }
-        public void UserRoleProcess()
+        public void UserRoleProcess(JsonTestData.UserRole userRole )
         {
             ClickOnUserRole();
-            ClickOnAddUserRole();
-            ClickOnCancel();
             ClickOnAdd();
-            EnterUserRoleDetails("TestRole", "Test Description");
-            ClickOnSave();
-            GridSearch("TestRole");
+            ClickOnRoleCancel();
+            ClickOnAdd();
+            EnterUserRoleDetails(userRole.RoleName, userRole.Description);
+            ClickOnRoleSave();
+            GridSearch(userRole.RoleName);
             ClickOnEdit();
-            EditUserRoleDetails("TestRole Edit");
-            ClickOnSave();
+            EditUserRoleDetails(userRole.EditRoleName);
+            ClickOnRoleSave();
             ClickOnDelete();
             ClickDeleteConfirmNo();
             ClickOnDelete();

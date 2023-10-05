@@ -6,7 +6,7 @@ using SpecFlowAutomation.Framework.JsonTestData;
 using System;
 using TechTalk.SpecFlow;
 
-namespace SpecFlowAutomation.Acutis.StepDefinitions
+namespace SpecFlowAutomation.Acutis.StepDefinitions.Administration
 {
     [Binding]
     public class TrainingScheduleStepDefinitions
@@ -16,8 +16,8 @@ namespace SpecFlowAutomation.Acutis.StepDefinitions
         private readonly AcutisJsonDataObjects testData;
         public TrainingScheduleStepDefinitions(IWebDriver driver)
         {
-            this.loginPage = new AcutisLoginPage(driver);
-            this.trainingSchedule = new TrainingSchedule(driver);
+            loginPage = new AcutisLoginPage(driver);
+            trainingSchedule = new TrainingSchedule(driver);
             testData = (AcutisJsonDataObjects)JsonDataReader.GetJsonData("Acutis");
 
         }

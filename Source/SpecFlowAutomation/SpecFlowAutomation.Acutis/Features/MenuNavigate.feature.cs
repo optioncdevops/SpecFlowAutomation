@@ -77,18 +77,14 @@ namespace SpecFlowAutomation.Acutis.Features
         [NUnit.Framework.DescriptionAttribute("001_Viper Login as a admin with valid user credentials")]
         [NUnit.Framework.CategoryAttribute("Sprint_01")]
         [NUnit.Framework.CategoryAttribute("Functional")]
-        [NUnit.Framework.CategoryAttribute("DataSource:Input/ViperTestData.xlsx")]
-        [NUnit.Framework.CategoryAttribute("Dataset:Ticket")]
         public void _001_ViperLoginAsAAdminWithValidUserCredentials()
         {
             string[] tagsOfScenario = new string[] {
                     "Sprint_01",
-                    "Functional",
-                    "DataSource:Input/ViperTestData.xlsx",
-                    "Dataset:Ticket"};
+                    "Functional"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("001_Viper Login as a admin with valid user credentials", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 8
+#line 5
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
@@ -98,14 +94,20 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 10
+#line 6
  testRunner.Given("Launch the application with valid user credentials URL and UserName and the Passw" +
                         "ord", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 21
+#line 12
  testRunner.Then("Navigate to User Details to the process", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-#line 24
+#line 13
+ testRunner.Then("Navigate to User Role to the process", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+#line 14
+ testRunner.Then("Navigate to Training Schedule to the process", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+#line 22
  testRunner.Then("User should be able to logout from the application", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
